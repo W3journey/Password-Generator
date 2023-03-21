@@ -29,6 +29,7 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { CopyIcon, QusetionIcon, UpDownIcon } from "@chakra-ui/icons";
+import ToggleDarkMode from "@/components/ToggleDarkMode";
 
 export default function Home() {
   const [passwordType, setPasswordType] = useState("1");
@@ -101,6 +102,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <ToggleDarkMode />
       <Center>
         <Box>
           <Center>
