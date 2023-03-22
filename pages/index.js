@@ -118,7 +118,6 @@ export default function Home() {
               <Input
                 pr="4.5rem"
                 placeholder={show ? password : "*********"}
-                _placeholder={{ opacity: 1, color: "#81E6D9" }}
                 type={show ? "Text" : "password"}
               />
               <InputRightElement width="4.5rem" mr="47px">
@@ -127,13 +126,15 @@ export default function Home() {
                 </Button>
               </InputRightElement>
               <Spacer />
-              <IconButton
-                aria-label="Copy to clipboard"
-                colorScheme="teal"
-                icon={<CopyIcon />}
-                ml="4px"
-                onClick={() => handleCopy(password)}
-              />
+              <Tooltip hasArrow label="Copy to clipboard" closeDelay={500}>
+                <IconButton
+                  aria-label="Copy to clipboard"
+                  colorScheme="teal"
+                  icon={<CopyIcon />}
+                  ml="4px"
+                  onClick={() => handleCopy(password)}
+                />
+              </Tooltip>
             </InputGroup>
           </Flex>
           <Divider p={2} />
