@@ -27,6 +27,11 @@ import {
   Radio,
   RadioGroup,
   ButtonGroup,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { CopyIcon, QusetionIcon, UpDownIcon } from "@chakra-ui/icons";
@@ -146,19 +151,27 @@ export default function Home() {
               mt="2"
               onClick={() => setPasswordLength(16)}
               variant="outline"
+              isDisabled={passwordType === "2" ? true : false}
             >
               reset
             </Button>
           </Flex>
           <HStack>
-            <Input
-              type="number"
-              w="55px"
+            <NumberInput
+              defaultValue={passwordLength}
+              min={1}
+              max={32}
               value={passwordLength}
-              _placeholder={{ opacity: 1, color: "#EDEDEE" }}
-              onChange={(e) => handleInputChange(e.target.value)}
-              disabled={passwordType === "2" ? true : false}
-            />
+              size="md"
+              maxW={"80px"}
+              onChange={(val) => handleInputChange(val)}
+            >
+              <NumberInputField />
+              <NumberInputStepper>
+                <NumberIncrementStepper />
+                <NumberDecrementStepper />
+              </NumberInputStepper>
+            </NumberInput>
             <Slider
               size="lg"
               colorScheme="teal"
