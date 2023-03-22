@@ -157,46 +157,51 @@ export default function Home() {
             </Button>
           </Flex>
           <HStack>
-            <NumberInput
-              defaultValue={passwordLength}
-              min={1}
-              max={32}
-              value={passwordLength}
-              size="md"
-              maxW={"80px"}
-              onChange={(val) => handleInputChange(val)}
-            >
-              <NumberInputField />
-              <NumberInputStepper>
-                <NumberIncrementStepper />
-                <NumberDecrementStepper />
-              </NumberInputStepper>
-            </NumberInput>
-            <Slider
-              size="lg"
-              colorScheme="teal"
-              min={1}
-              max={32}
-              value={passwordLength}
-              onChange={(val) => handleSliderChange(val)}
-              onMouseEnter={() => setShowTooltip(true)}
-              onMouseLeave={() => setShowTooltip(false)}
-              disabled={passwordType === "2" ? true : false}
-            >
-              <SliderTrack>
-                <SliderFilledTrack />
-              </SliderTrack>
-              <Tooltip
-                hasArrow
-                bg="teal.500"
-                color="white"
-                placement="top"
-                isOpen={showTooltip}
-                label={`${passwordLength}`}
+            <Flex borderWidth={1} w="350px" p="2" borderRadius={"md"}>
+              <NumberInput
+                defaultValue={passwordLength}
+                min={1}
+                max={32}
+                value={passwordLength}
+                size="md"
+                maxW={"80px"}
+                mr="1rem"
+                onChange={(val) => handleInputChange(val)}
+                isDisabled={passwordType === "2" ? true : false}
               >
-                <SliderThumb />
-              </Tooltip>
-            </Slider>
+                <NumberInputField />
+                <NumberInputStepper>
+                  <NumberIncrementStepper />
+                  <NumberDecrementStepper />
+                </NumberInputStepper>
+              </NumberInput>
+              <Slider
+                size="lg"
+                colorScheme="teal"
+                min={1}
+                max={32}
+                mr="1rem"
+                value={passwordLength}
+                onChange={(val) => handleSliderChange(val)}
+                onMouseEnter={() => setShowTooltip(true)}
+                onMouseLeave={() => setShowTooltip(false)}
+                disabled={passwordType === "2" ? true : false}
+              >
+                <SliderTrack>
+                  <SliderFilledTrack />
+                </SliderTrack>
+                <Tooltip
+                  hasArrow
+                  bg="teal.500"
+                  color="white"
+                  placement="top"
+                  isOpen={showTooltip}
+                  label={`${passwordLength}`}
+                >
+                  <SliderThumb />
+                </Tooltip>
+              </Slider>
+            </Flex>
           </HStack>
           <Divider p={2} />
           <Flex h="90px" mt="4" justifyContent={"center"}>
