@@ -129,17 +129,7 @@ export default function Home() {
               <Spacer />
             </InputGroup>
           </Flex>
-          <Flex justifyContent={"center"} mt="2">
-            <Tooltip hasArrow label="Copy to clipboard" closeDelay={500}>
-              <IconButton
-                aria-label="Copy to clipboard"
-                colorScheme="teal"
-                icon={<CopyIcon />}
-                ml="4px"
-                onClick={() => handleCopy(password)}
-              />
-            </Tooltip>
-          </Flex>
+
           <Divider p={2} />
           <Heading
             size="md"
@@ -185,16 +175,23 @@ export default function Home() {
             </Slider>
           </HStack>
           <Divider p={2} />
-          <Center>
-            <HStack mt="20px">
-              <Button
-                onClick={() => handleGeneratePass(passwordLength, passwordType)}
+          <Flex h="90px" p="3" justifyContent={"center"}>
+            <Button
+              onClick={() => handleGeneratePass(passwordLength, passwordType)}
+              colorScheme="teal"
+            >
+              Generate New Password
+            </Button>
+            <Tooltip hasArrow label="Copy to clipboard" closeDelay={500}>
+              <IconButton
+                aria-label="Copy to clipboard"
                 colorScheme="teal"
-              >
-                Generate New Password
-              </Button>
-            </HStack>
-          </Center>
+                icon={<CopyIcon />}
+                ml="4px"
+                onClick={() => handleCopy(password)}
+              />
+            </Tooltip>
+          </Flex>
         </Box>
       </Center>
     </>
