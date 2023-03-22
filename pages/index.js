@@ -118,24 +118,27 @@ export default function Home() {
               <Input
                 pr="4.5rem"
                 placeholder={show ? password : "*********"}
+                _placeholder={{ opacity: 1, color: "#81E6D9" }}
                 type={show ? "Text" : "password"}
               />
-              <InputRightElement width="4.5rem" mr="47px">
+              <InputRightElement width="4.5rem">
                 <Button h="1.75rem" size="sm" onClick={() => setShow(!show)}>
                   {show ? "Hide" : "Show"}
                 </Button>
               </InputRightElement>
               <Spacer />
-              <Tooltip hasArrow label="Copy to clipboard" closeDelay={500}>
-                <IconButton
-                  aria-label="Copy to clipboard"
-                  colorScheme="teal"
-                  icon={<CopyIcon />}
-                  ml="4px"
-                  onClick={() => handleCopy(password)}
-                />
-              </Tooltip>
             </InputGroup>
+          </Flex>
+          <Flex justifyContent={"center"} mt="2">
+            <Tooltip hasArrow label="Copy to clipboard" closeDelay={500}>
+              <IconButton
+                aria-label="Copy to clipboard"
+                colorScheme="teal"
+                icon={<CopyIcon />}
+                ml="4px"
+                onClick={() => handleCopy(password)}
+              />
+            </Tooltip>
           </Flex>
           <Divider p={2} />
           <Heading
