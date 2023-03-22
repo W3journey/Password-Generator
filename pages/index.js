@@ -26,6 +26,7 @@ import {
   Tooltip,
   Radio,
   RadioGroup,
+  ButtonGroup,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { CopyIcon, QusetionIcon, UpDownIcon } from "@chakra-ui/icons";
@@ -131,14 +132,24 @@ export default function Home() {
           </Flex>
 
           <Divider p={2} />
-          <Heading
-            size="md"
-            m="10px"
-            align="center"
-            textColor={passwordType === "2" ? "#252A36" : undefined}
-          >
-            Password Length
-          </Heading>
+          <Flex justifyContent={"center"}>
+            <Heading
+              size="md"
+              m="10px"
+              align="center"
+              textColor={passwordType === "2" ? "#252A36" : undefined}
+            >
+              Password Length
+            </Heading>
+            <Button
+              size="xs"
+              mt="2"
+              onClick={() => setPasswordLength(16)}
+              variant="outline"
+            >
+              reset
+            </Button>
+          </Flex>
           <HStack>
             <Input
               type="number"
@@ -175,22 +186,24 @@ export default function Home() {
             </Slider>
           </HStack>
           <Divider p={2} />
-          <Flex h="90px" p="3" justifyContent={"center"}>
-            <Button
-              onClick={() => handleGeneratePass(passwordLength, passwordType)}
-              colorScheme="teal"
-            >
-              Generate New Password
-            </Button>
-            <Tooltip hasArrow label="Copy to clipboard" closeDelay={500}>
-              <IconButton
-                aria-label="Copy to clipboard"
+          <Flex h="90px" mt="4" justifyContent={"center"}>
+            <ButtonGroup spacing={"2"}>
+              <Button
+                onClick={() => handleGeneratePass(passwordLength, passwordType)}
                 colorScheme="teal"
-                icon={<CopyIcon />}
-                ml="4px"
-                onClick={() => handleCopy(password)}
-              />
-            </Tooltip>
+              >
+                Generate New Password
+              </Button>
+              <Tooltip hasArrow label="Copy to clipboard" closeDelay={500}>
+                <IconButton
+                  aria-label="Copy to clipboard"
+                  colorScheme="teal"
+                  icon={<CopyIcon />}
+                  ml="4px"
+                  onClick={() => handleCopy(password)}
+                />
+              </Tooltip>
+            </ButtonGroup>
           </Flex>
         </Box>
       </Center>
